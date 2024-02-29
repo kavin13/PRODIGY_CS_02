@@ -23,7 +23,7 @@ def decrypt_image(image_path, key):
     width, height = image.size
     pixels = image.load()
 
-  for y in range(height):
+    for y in range(height):
         for x in range(width):
             r, g, b = pixels[x, y]
 
@@ -32,7 +32,7 @@ def decrypt_image(image_path, key):
             b = (b - key) % 256
             pixels[x, y] = (r, g, b)
 
-    decrypted_image_path = image_path.replace('_encrypted.png', '_decrypted.png')  # Save decrypted image
+    decrypted_image_path = image_path.replace('_encrypted.png', '_decrypted.png')
     image.save(decrypted_image_path)
     print(f"Image decrypted and saved as {decrypted_image_path}")
 
